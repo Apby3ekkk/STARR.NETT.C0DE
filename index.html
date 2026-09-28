@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Welc0me to STARR.NET!</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #1e1e2e;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .box {
+    background: #2a2a3c;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+    width: 320px;
+    text-align: center;
+  }
+  input, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 6px;
+    border: none;
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  input { background: #3a3a4c; color: #fff; }
+  button { background: #6c5ce7; color: #fff; cursor: pointer; }
+  button:hover { background: #5b4bd6; }
+  .hint-link {
+    display: none;
+    margin-top: 15px;
+    color: #ff7675;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .secret {
+    display: none;
+    text-align: center;
+  }
+  .secret img {
+    width: 320px;
+    max-width: 90vw;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  }
+  .secret p {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #fff;
+  }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+
+  <div class="box" id="loginBox">
+    <h2>Type OUR password...</h2>
+    <input type="password" id="password" placeholder="Пароль">
+    <button onclick="checkPassword()">Login</button>
+    <a class="hint-link" id="hintLink" href="#" onclick="showHint(); return false;">
+      Forgot OUR password? Hint:
+    </a>
+  </div>
+
+  <div class="secret" id="secretBox">
+    <img src="cat.jpg" alt="IT IS WATCHING">
+    <p>ADWIN!!! Forget about it!! Everything will be fine,<br>we'll find the missing hakers and ur parrot, just dont cry!<br>I'll buy u some coffee, would u like some?<br>ADWIN, DON'T DO THIS! NOO000...</p>
+  </div>
+
+<script>
+  const CORRECT_PASSWORD = "REDSTARR";
+
+  function checkPassword() {
+    const input = document.getElementById("password").value;
+    if (input === CORRECT_PASSWORD) {
+      document.getElementById("loginBox").classList.add("hidden");
+      document.getElementById("hintLink").style.display = "none";
+      document.getElementById("secretBox").style.display = "block";
+    } else {
+      document.getElementById("hintLink").style.display = "inline-block";
+      document.getElementById("password").value = "";
+    }
+  }
+
+  function showHint() {
+    alert(Our main fear...");
+  }
+
+  document.getElementById("password").addEventListener("keypress", e => {
+    if (e.key === "Enter") checkPassword();
+  });
+</script>
+</body>
+</html>
